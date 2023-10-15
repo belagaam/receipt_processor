@@ -36,17 +36,17 @@ Before you can run the Receipt Processor, you'll need to ensure you have Python 
 
 
 The Receipt Processor project requires the following libraries, which can be installed using Python's package manager, pip:
+json - Used for working with JSON data.
 
-  json - Used for working with JSON data.
-  
-  Flask - A micro web framework for building web applications.
-  
-  pytest - A testing framework for writing and running tests.
-  
-  hashlib - Used for various cryptographic operations, such as hashing.
-  
-  datetime - Provides classes for working with dates and times in Python.
+Flask - A micro web framework for building web applications.
 
+pytest - A testing framework for writing and running tests.
+
+hashlib - Used for various cryptographic operations, such as hashing.
+
+datetime - Provides classes for working with dates and times in Python.
+
+  
 ```bash
 pip install flask json pytest hashlib datetime
 ```

@@ -46,6 +46,32 @@ def process_receipt():
         #return "Invalid request, please check the request", 500
 
 
+"""
+Submits a request for processing 
+Path:receipt/{id}/points
+Request Type: GET
+Output:"application/json"
+Description: Takes the integer a json. Generates a hash code using the receipt data, calculates the points based on the rules provided. And return the unique ID to the user.
+Reference: https://datagy.io/python-sha256/
+Response Status: 200 Success
+400: Invalid JSON
+500: Invalid request
+Assumption: Same receipt json generate same unique id(same hash)
+"""
+@app.route('/receipts/<string:id>/points', methods = ['GET'])
+def get_receipt_points(id):
+    try:
+        if id in receipts_data:
+            receipt_details = receipts_data[id]
+            points = receipt_details["points"]
+            response = {"points": points}
+            return jsonify(response), 200  # 200 Status ok
+        else:
+            return "Receipt not found. Please try again with a different receipt id", 404
+    except:
+        return "Invalid request, please check the request", 500
+
+
 def calculate_points(receipt):
     points = 0
 

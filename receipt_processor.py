@@ -51,12 +51,10 @@ Submits a request for processing
 Path:receipt/{id}/points
 Request Type: GET
 Output:"application/json"
-Description: Takes the integer a json. Generates a hash code using the receipt data, calculates the points based on the rules provided. And return the unique ID to the user.
-Reference: https://datagy.io/python-sha256/
+Description: Takes the receipt ID and returns an object specifying the points awarded.
 Response Status: 200 Success
-400: Invalid JSON
+404: Invalid ID
 500: Invalid request
-Assumption: Same receipt json generate same unique id(same hash)
 """
 @app.route('/receipts/<string:id>/points', methods = ['GET'])
 def get_receipt_points(id):
